@@ -31,3 +31,9 @@ Start the app and all related services:
 docker-compose up -d
 docker-compose exec app php artisan db:seed --class=EventSeeder
 ```
+
+Access app via
+
+```bash
+http://localhost:8080
+```
