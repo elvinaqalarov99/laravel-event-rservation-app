@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('user_name');
             $table->integer('seat_number');
             $table->timestamps();
+
+            $table->unique(['event_id', 'seat_number']);
         });
     }
 

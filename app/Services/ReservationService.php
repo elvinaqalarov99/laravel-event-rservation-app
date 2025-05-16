@@ -28,9 +28,7 @@ class ReservationService
                 throw new RuntimeException('Sorry, this event is fully booked.');
             }
 
-            $lastSeatNumber = Reservation::where('event_id', $lockedEvent->id)
-                                        ->lockForUpdate()
-                                        ->max('seat_number');
+            $lastSeatNumber = Reservation::where('event_id', $lockedEvent->id)->max('seat_number');
             $nextSeatNumber = $lastSeatNumber ? $lastSeatNumber + 1 : 1;
 
             if ($nextSeatNumber > $lockedEvent->total_seats) {
